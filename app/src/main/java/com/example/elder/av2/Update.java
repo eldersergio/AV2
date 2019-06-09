@@ -33,6 +33,7 @@ String id_usuario;
         final EditText login = (EditText) findViewById(R.id.login);
         final EditText senha = (EditText) findViewById(R.id.senha);
         Button btn1 = (Button) findViewById(R.id.enviar);
+        Button btn2 = (Button) findViewById(R.id.remover);
         Consultar c = new Consultar();
 
         String resultado = null;
@@ -126,6 +127,44 @@ String id_usuario;
             }
 
         });
+
+        btn2.setOnClickListener(new Button.OnClickListener(){
+
+            public void onClick(View v){
+
+                Consultar c = new Consultar();
+
+                c.setId(id_usuario);
+                c.setAcao("deletar");
+
+                String Teste = null;
+                /*try {
+                    Teste = c.buscaServidor();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }*/
+                c.execute();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Teste = c.getRes();
+
+                if (Teste.contains("removeu")){
+                    GoHome();
+                    Toast.makeText(getApplicationContext(), Teste, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), Teste, Toast.LENGTH_SHORT).show();
+                }
+
+                Toast.makeText(getApplicationContext(), Teste, Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
+
+
 
     }
 

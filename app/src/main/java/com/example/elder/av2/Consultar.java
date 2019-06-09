@@ -119,6 +119,8 @@ public class Consultar extends AsyncTask<String, Void, String> {
             parameters = "id="+this.id+"&acao="+this.acao;
         }else if (this.acao == "update"){
             parameters = "id="+this.id+"&nome="+this.nome+"&email="+this.email+"&login=" + this.login + "&senha=" + this.senha+"&acao="+this.acao;
+        }else if (this.acao == "deletar"){
+            parameters = "id="+this.id+"&acao="+this.acao;
         }
 
         url = new  URL("http://jacksonsilva.dev/sistema/ws_android.php");

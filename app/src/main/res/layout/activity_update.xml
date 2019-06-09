@@ -67,5 +67,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:text="Atualizar" />
+    <Button
+        android:id="@+id/remover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enviar"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff"
+        android:background="@drawable/buttonshape"
+        android:layout_marginTop="18dp"
+        android:text="Remover" />
 
 </RelativeLayout>
