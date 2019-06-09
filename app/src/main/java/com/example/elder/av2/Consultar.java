@@ -24,7 +24,7 @@ import javax.net.ssl.HttpsURLConnection;
  */
 
 public class Consultar extends AsyncTask<String, Void, String> {
-
+    private String id;
     private String nome;
     private String email;
     private String login;
@@ -32,6 +32,9 @@ public class Consultar extends AsyncTask<String, Void, String> {
     private String res;
     private String acao;
 
+    public String getId(){
+        return this.id;
+    }
     public String getNome(){
         return this.nome;
     }
@@ -47,6 +50,9 @@ public class Consultar extends AsyncTask<String, Void, String> {
     public String getRes(){ return this.res; }
     public String getAcao(){ return this.acao; }
 
+    public void setId(String id){
+        this.id = id;
+    }
     public void setNome(String n){
         this.nome = n;
     }
@@ -109,6 +115,10 @@ public class Consultar extends AsyncTask<String, Void, String> {
             parameters = "nome="+this.nome+"&email="+this.email+"&login=" + this.login + "&senha=" + this.senha+"&acao="+this.acao;
         }else if (this.acao == "buscar"){
             parameters = "acao="+this.acao;
+        }else if (this.acao == "buscar2"){
+            parameters = "id="+this.id+"&acao="+this.acao;
+        }else if (this.acao == "update"){
+            parameters = "id="+this.id+"&nome="+this.nome+"&email="+this.email+"&login=" + this.login + "&senha=" + this.senha+"&acao="+this.acao;
         }
 
         url = new  URL("http://jacksonsilva.dev/sistema/ws_android.php");

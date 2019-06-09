@@ -40,13 +40,31 @@ public class Cadastro extends AppCompatActivity {
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }*/
-                Teste = c.execute().toString();
-                //Teste = c.getRes();
+                c.execute();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Teste = c.getRes();
+                if (Teste.contains("cadastrado")){
+                    GoLogin();
+                    Toast.makeText(getApplicationContext(), Teste, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), Teste, Toast.LENGTH_SHORT).show();
+                }
 
                 Toast.makeText(getApplicationContext(), Teste, Toast.LENGTH_SHORT).show();
 
             }
 
         });
+    }
+
+    public void GoLogin(){
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
     }
 }
